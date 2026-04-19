@@ -7,26 +7,70 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Yield Commodities</p>
+      <h1>Commodities Tracker</h1>
+      <p class="intro">
+        Benchmark contracts across energy, metals, agriculture and softs.
+      </p>
+    </div>
+  </header>
 
-<header>
-  <h1>Yield Commodities Tracker</h1>
-  <p>Live market dashboard</p>
-</header>
+  <main class="wrap">
+    <section class="top-grid">
+      <div class="card lead-card">
+        <p class="card-label">Market note</p>
+        <h2>Daily board</h2>
+        <p>
+          A clean publication-style tracker for monitoring key contracts and the
+          day’s biggest moves.
+        </p>
+      </div>
 
-<main>
-  <table id="tracker">
-    <thead>
-      <tr>
-        <th>Commodity</th>
-        <th>Price</th>
-        <th>Daily Change</th>
-        <th>Category</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</main>
+      <div class="card stat-card">
+        <p class="card-label">Top gainer</p>
+        <div id="top-gainer" class="stat-value">—</div>
+      </div>
 
-<script src="app.js"></script>
+      <div class="card stat-card">
+        <p class="card-label">Top loser</p>
+        <div id="top-loser" class="stat-value">—</div>
+      </div>
+    </section>
+
+    <section class="board card">
+      <div class="board-head">
+        <div>
+          <h2>Tracker board</h2>
+          <p class="subtle">Prototype version with sample data.</p>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Energy">Energy</button>
+          <button class="filter-btn" data-filter="Metals">Metals</button>
+          <button class="filter-btn" data-filter="Agriculture">Agriculture</button>
+          <button class="filter-btn" data-filter="Softs">Softs</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="tracker">
+          <thead>
+            <tr>
+              <th>Commodity</th>
+              <th>Price</th>
+              <th>Daily change</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
