@@ -1,75 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yield Commodities Tracker</title>
+  <title>YIELD Commodities Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <p class="eyebrow">Yield Commodities</p>
-      <h1>Commodities Tracker</h1>
-      <p class="intro">
-        Benchmark contracts across energy, metals, agriculture and softs.
-      </p>
-    </div>
-  </header>
+ <div class="background-logo">
+  <img src="./assets/YIELD-logo.png" alt="" class="background-logo-image" />
+ </div>
+ 
+ <div class="app-shell">
+    <header class="site-header">
+      <div class="brand-block">
+       
 
-  <main class="wrap">
-    <section class="top-grid">
-      <div class="card lead-card">
-        <p class="card-label">Market note</p>
-        <h2>Daily board</h2>
-        <p>
-          A clean publication-style tracker for monitoring key contracts and the
-          day’s biggest moves.
-        </p>
-      </div>
-
-      <div class="card stat-card">
-        <p class="card-label">Top gainer</p>
-        <div id="top-gainer" class="stat-value">—</div>
-      </div>
-
-      <div class="card stat-card">
-        <p class="card-label">Top loser</p>
-        <div id="top-loser" class="stat-value">—</div>
-      </div>
-    </section>
-
-    <section class="board card">
-      <div class="board-head">
-        <div>
-          <h2>Tracker board</h2>
-          <p class="subtle">Prototype version with sample data.</p>
-        </div>
-
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="All">All</button>
-          <button class="filter-btn" data-filter="Energy">Energy</button>
-          <button class="filter-btn" data-filter="Metals">Metals</button>
-          <button class="filter-btn" data-filter="Agriculture">Agriculture</button>
-          <button class="filter-btn" data-filter="Softs">Softs</button>
+        <div class="brand-copy">
+          <p class="eyebrow">YIELD</p>
+          <h1>Commodities Tracker</h1>
+          <p class="tagline">Reporting on commodities, markets and the flow of capital</p>
         </div>
       </div>
 
-      <div class="table-wrap">
-        <table id="tracker">
-          <thead>
-            <tr>
-              <th>Commodity</th>
-              <th>Price</th>
-              <th>Daily change</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <div class="header-status">
+        <div class="status-pill">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="feed-status-text">Connecting</span>
+        </div>
+        <p class="updated-at" id="updated-at">Waiting for market feed</p>
       </div>
-    </section>
-  </main>
+    </header>
+
+    <main class="main-layout">
+      <section class="hero-grid">
+        <article class="hero-card narrative-card" id="market-narrative-card">
+          <div class="card-label">Market narrative</div>
+          <h2 id="narrative-lead">Loading market narrative...</h2>
+          <p id="narrative-summary">
+            Pulling the latest cross-commodity moves and assembling the editorial layer.
+          </p>
+          <div class="editors-note" id="editors-note">
+            Editor’s note will appear here.
+          </div>
+        </article>
+
+        <article class="hero-card">
+          <div class="card-label">Risk barometer</div>
+          <div class="metric-pair">
+            <div>
+              <p class="metric-title">Energy breadth</p>
+              <p class="metric-value" id="energy-breadth">—</p>
+            </div>
+            <div>
+              <p class="metric-title">Metals breadth</p>
+              <p class="metric-value" id="metals-breadth">—</p>
+            </div>
+          </div>
+          <p class="muted-copy" id="breadth-summary">
+            Waiting for sector breadth snapshot.
+          </p>
+        </article>
+
+        <article class="hero-card">
+          <div class="card-label">What matters today</div>
+          <ul class="bullet-brief" id="what-matters-list">
+            <li>Fetching lead market signals...</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="movers-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h3>Top winners</h3>
+            <span class="panel-subtitle">Best daily performers</span>
+          </div>
+          <div id="winners-list" class="movers-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h3>Top losers</h3>
+            <span class="panel-subtitle">Weakest daily performers</span>
+          </div>
+          <div id="losers-list" class="movers-list"></div>
+        </article>
+      </section>
+
+      <section class="toolbar toolbar-below-movers">
+        <div class="toolbar-left">
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Search commodities, symbols, categories..."
+            autocomplete="off"
+          />
+        </div>
+        <div class="toolbar-right">
+          <button id="refresh-btn" class="refresh-btn" type="button">Refresh now</button>
+        </div>
+      </section>
+
+      <section class="panel market-feed-panel">
+        <div class="panel-header">
+          <h3>Market feed</h3>
+          <span class="panel-subtitle">Grouped by commodity class</span>
+        </div>
+        <div id="commodity-groups" class="commodity-groups"></div>
+      </section>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
