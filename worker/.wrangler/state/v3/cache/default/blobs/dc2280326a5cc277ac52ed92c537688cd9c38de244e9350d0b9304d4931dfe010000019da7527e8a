@@ -1,0 +1,98 @@
+{
+  "data": [
+    {
+      "name": "Crude Oil (WTI)",
+      "symbol": "CL=F",
+      "price": 82.59,
+      "changePct": -9.52,
+      "category": "Energy"
+    },
+    {
+      "name": "Brent Crude",
+      "symbol": "BZ=F",
+      "price": 90.38,
+      "changePct": -4.65,
+      "category": "Energy"
+    },
+    {
+      "name": "Natural Gas",
+      "symbol": "NG=F",
+      "price": 2.674,
+      "changePct": 2.89,
+      "category": "Energy"
+    },
+    {
+      "name": "Gold",
+      "symbol": "GC=F",
+      "price": 4879.6,
+      "changePct": 1.13,
+      "category": "Metals"
+    },
+    {
+      "name": "Silver",
+      "symbol": "SI=F",
+      "price": 81.842,
+      "changePct": 3.09,
+      "category": "Metals"
+    },
+    {
+      "name": "Copper",
+      "symbol": "HG=F",
+      "price": 6.1145,
+      "changePct": 0.72,
+      "category": "Metals"
+    }
+  ],
+  "narrative": {
+    "topGainers": [
+      {
+        "name": "Silver",
+        "symbol": "SI=F",
+        "price": 81.842,
+        "changePct": 3.09,
+        "category": "Metals"
+      },
+      {
+        "name": "Natural Gas",
+        "symbol": "NG=F",
+        "price": 2.674,
+        "changePct": 2.89,
+        "category": "Energy"
+      },
+      {
+        "name": "Gold",
+        "symbol": "GC=F",
+        "price": 4879.6,
+        "changePct": 1.13,
+        "category": "Metals"
+      }
+    ],
+    "topLosers": [
+      {
+        "name": "Crude Oil (WTI)",
+        "symbol": "CL=F",
+        "price": 82.59,
+        "changePct": -9.52,
+        "category": "Energy"
+      },
+      {
+        "name": "Brent Crude",
+        "symbol": "BZ=F",
+        "price": 90.38,
+        "changePct": -4.65,
+        "category": "Energy"
+      }
+    ],
+    "sectorMoves": {
+      "Energy": -3.76,
+      "Metals": 1.65
+    },
+    "summary": "Silver is leading moves at +3.09%, while Crude Oil (WTI) is the weakest contract at -9.52%. Metals are outperforming energy, averaging +1.65% versus -3.76%."
+  },
+  "meta": {
+    "source": "Yahoo Finance",
+    "generatedAt": "2026-04-19T19:58:14.633Z",
+    "fallbackUsed": false,
+    "cacheTtlSeconds": 300
+  }
+}
