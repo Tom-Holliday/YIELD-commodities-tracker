@@ -33,9 +33,10 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top right, rgba(179, 18, 23, 0.12), transparent 28%),
-    radial-gradient(circle at 20% 0%, rgba(179, 18, 23, 0.07), transparent 20%),
-    linear-gradient(180deg, #050505 0%, #090909 100%);
+    radial-gradient(circle at top right, rgba(179, 18, 23, 0.08), transparent 28%),
+    radial-gradient(circle at 20% 0%, rgba(179, 18, 23, 0.05), transparent 20%),
+    #050505;
+  background-attachment: fixed;
 }
 
 body::before {
@@ -532,4 +533,17 @@ ul li::marker {
   line-height: 1.05;
   font-size: clamp(1.4rem, 2vw, 2rem);
   max-width: 16ch;
+}
+
+html, body {
+  height: 100%;
+  background: #050505;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+html {
+  overflow-y: scroll;
 }
