@@ -105,7 +105,7 @@ body::before {
 }
 
 .tagline {
-  font-size: 0.9rem;S
+  font-size: 0.9rem;
   margin: 10px 0 0;
   color: var(--muted);
   max-width: 560px;
