@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
- <div class="background-logo">
+ <div class="background-logo" aria-hidden="true">
   <img src="./assets/YIELD-logo.png" alt="" class="background-logo-image" />
  </div>
  
@@ -41,15 +41,20 @@
     <main class="main-layout">
       <section class="hero-grid">
         <article class="hero-card narrative-card" id="market-narrative-card">
-          <div class="card-label">Market narrative</div>
-          <h2 id="narrative-lead">Loading market narrative...</h2>
-          <p id="narrative-summary">
-            Pulling the latest cross-commodity moves and assembling the editorial layer.
-          </p>
-          <div class="editors-note" id="editors-note">
-            Editor’s note will appear here.
-          </div>
-        </article>
+  <div class="card-label">Market narrative</div>
+
+  <ul class="narrative-bullets" id="narrative-lead">
+    <li>Loading market narrative...</li>
+  </ul>
+
+  <p id="narrative-summary" class="narrative-summary">
+    Pulling the latest cross-commodity moves and assembling the editorial layer.
+  </p>
+
+  <div class="editors-note" id="editors-note">
+    Editor’s note will appear here.
+  </div>
+</article>
 
         <article class="hero-card">
           <div class="card-label">Risk barometer</div>

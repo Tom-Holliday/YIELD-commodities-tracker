@@ -216,11 +216,42 @@ function renderNarrative(narrative) {
   const energyMove = narrative?.sectorMoves?.Energy;
   const metalsMove = narrative?.sectorMoves?.Metals;
 
-  el.narrativeLead.textContent =
-    narrative?.summary || "Commodities are mixed.";
+  const bullets = [];
+
+  if (Array.isArray(narrative?.topGainers) && narrative.topGainers.length) {
+    const top = narrative.topGainers[0];
+    bullets.push(
+      `${escapeHtml(top.name)} leads, up <span class="${top.changePct >= 0 ? "change-up" : "change-down"}">${formatPct(top.changePct)}</span>`
+    );
+  }
+
+  if (Array.isArray(narrative?.topLosers) && narrative.topLosers.length) {
+    const bottom = narrative.topLosers[0];
+    bullets.push(
+      `${escapeHtml(bottom.name)} trails, down <span class="${bottom.changePct <= 0 ? "change-down" : "change-up"}">${formatPct(bottom.changePct)}</span>`
+    );
+  }
+
+  if (Number.isFinite(energyMove) && Number.isFinite(metalsMove)) {
+    bullets.push(
+      metalsMove > energyMove
+        ? "Metals are outperforming energy"
+        : energyMove > metalsMove
+          ? "Energy is outperforming metals"
+          : "Energy and metals are moving in line"
+    );
+
+    bullets.push(
+      `Metals breadth <span class="${metalsMove >= 0 ? "change-up" : "change-down"}">${formatPct(metalsMove)}</span> vs Energy <span class="${energyMove >= 0 ? "change-up" : "change-down"}">${formatPct(energyMove)}</span>`
+    );
+  }
+
+  el.narrativeLead.innerHTML = (bullets.length ? bullets : ["Market signals are mixed"])
+    .map((line) => `<li>${line}</li>`)
+    .join("");
 
   el.narrativeSummary.textContent =
-    narrative?.summary || "No summary currently available.";
+    "Server-side narrative is generated from the latest commodity moves and sector breadth.";
 
   el.editorsNote.textContent = state.usingFallback
     ? "Fallback mode is active. The dashboard remains usable while the live feed is unavailable."
@@ -241,22 +272,18 @@ function renderNarrative(narrative) {
     ? `${breadthSummaryParts.join(", ")}.`
     : "Breadth snapshot unavailable.";
 
-  const bullets = [];
+  const whatMatters = [];
 
   if (Array.isArray(narrative?.topGainers) && narrative.topGainers.length) {
-    bullets.push(
-      `Top gainer: ${narrative.topGainers[0].name} (${formatPct(narrative.topGainers[0].changePct)})`
-    );
+    whatMatters.push(`Top gainer: ${narrative.topGainers[0].name} (${formatPct(narrative.topGainers[0].changePct)})`);
   }
 
   if (Array.isArray(narrative?.topLosers) && narrative.topLosers.length) {
-    bullets.push(
-      `Top loser: ${narrative.topLosers[0].name} (${formatPct(narrative.topLosers[0].changePct)})`
-    );
+    whatMatters.push(`Top loser: ${narrative.topLosers[0].name} (${formatPct(narrative.topLosers[0].changePct)})`);
   }
 
   if (Number.isFinite(energyMove) && Number.isFinite(metalsMove)) {
-    bullets.push(
+    whatMatters.push(
       energyMove > metalsMove
         ? "Energy is outperforming metals."
         : metalsMove > energyMove
@@ -265,7 +292,7 @@ function renderNarrative(narrative) {
     );
   }
 
-  el.whatMattersList.innerHTML = (bullets.length ? bullets : ["No lead signals currently available."])
+  el.whatMattersList.innerHTML = (whatMatters.length ? whatMatters : ["No lead signals currently available."])
     .map((line) => `<li>${escapeHtml(line)}</li>`)
     .join("");
 }
