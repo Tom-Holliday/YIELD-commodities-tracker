@@ -23,22 +23,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 16px;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at top right, rgba(179, 18, 23, 0.08), transparent 28%),
-    radial-gradient(circle at 20% 0%, rgba(179, 18, 23, 0.05), transparent 20%),
-    #050505;
-  background-attachment: fixed;
-}
-
 body::before {
   content: "";
   position: fixed;
@@ -56,8 +40,14 @@ body::before {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 32px), var(--container));
+  min-height: 100svh;
   margin: 0 auto;
   padding: 28px 0 40px;
+}
+
+body,
+.app-shell {
+  background-color: #050505;
 }
 
 .site-header {
@@ -535,15 +525,29 @@ ul li::marker {
   max-width: 16ch;
 }
 
-html, body {
+html {
+  margin: 0;
+  padding: 0;
   height: 100%;
+  font-size: 16px;
   background: #050505;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
 }
 
 body {
-  overscroll-behavior: none;
-}
-
-html {
-  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(179, 18, 23, 0.08), transparent 28%),
+    radial-gradient(circle at 20% 0%, rgba(179, 18, 23, 0.05), transparent 20%),
+    #050505;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
 }
